@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置生成器 -->
+<generatorConfiguration>
+	<!-- 引入配置文件 -->
+	<properties resource="mybatis/mybatisGenerator.properties" />
+	<context id="MysqlTables" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表； 一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖 -->
+		<property name="autoDelimitKeywords" value="false" />
+
+		<!-- 生成的Java文件的编码 -->
+		<property name="javaFileEncoding" value="utf-8" />
+
+		<!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+
+		<!-- 格式化JAVA代码 -->
+		<property name="javaFormatter"
+			value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+
+		<!-- 格式化XML代码 -->
+		<property name="xmlFormatter"
+			value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<!-- 注释 -->
+		<commentGenerator>
+			<!-- 是否生成注释 true:不生成 false:生成 -->
+			<property name="suppressAllComments" value="true" />
+			<!-- 是否生成时间戳 true:不生成 false:生成 -->
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- 数据库配置 -->
+		<jdbcConnection driverClass="${jdbc_driver}"
+			connectionURL="${jdbc_url}" userId="${jdbc_user}"
+			password="${jdbc_password}" />
+
+		<!-- 类型转换 -->
+		<javaTypeResolver>
+			<!-- false(默认)，把JDBC DECIMAL和NUMERIC类型解析为java.lang.Integer -->
+			<!-- true，把JDBC DECIMAL和NUMERIC类型解析为java.math.BigDecimal -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成Model模型文件 -->
+		<javaModelGenerator
+			targetPackage="com.liugawaheliujinnao.singleFunction.simpleCmsGeneratorProjectExample.pojo"
+			targetProject="src/main/java">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 清理数据库返回值的前后空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--对应的Mapper映射文件 -->
+		<sqlMapGenerator targetPackage="mapping"
+			targetProject="src/main/resources">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+
+		<!-- 对应的Mapper接口文件 -->
+		<javaClientGenerator
+			targetPackage="com.liugawaheliujinnao.singleFunction.simpleCmsGeneratorProjectExample.dao" targetProject="src/main/java"
+			type="XMLMAPPER">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+
+		<!-- 指定数据库表 -->
+		<!-- command -->
+		
+		<!--corporate-->
+		<table tableName="test_cor_info_com_info_basic_info" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true"></table>
+
+	</context>
+</generatorConfiguration>

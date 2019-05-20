@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.5.RELEASE</version>
+        <relativePath />
+    </parent>
+
+    <groupId>com.liugawaheliujinnao.singleFunction</groupId>
+    <artifactId>simple-cms-generator-project-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>simple-cms-generator-project-example</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.liugawaheliujinnao.singleFunction</groupId>
+            <artifactId>template</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- PageHelper -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.6</version>
+        </dependency>
+
+        <!-- Druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.5</version>
+            </plugin>
+
+            <plugin>
+                <groupId>com.liugawaheliujinnao.singleFunction</groupId>
+                <artifactId>generator-plugin</artifactId>
+                <version>2.2-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>simple-cms-generator</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <srcPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/src/main/java/com/liugawaheliujinnao/singleFunction/simpleCmsGeneratorProjectExample/</srcPath>
+                    <classesPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/target/classes/com/liugawaheliujinnao/singleFunction/simpleCmsGeneratorProjectExample/</classesPath>
+                    <projectPacakge>com.liugawaheliujinnao.singleFunction.simpleCmsGeneratorProjectExample</projectPacakge>
+                    <resorucePath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/src/main/resources/</resorucePath>
+                    <classPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/target/classes/</classPath>
+                    <sysFields>
+                        <option>adt</option>
+                        <option>aUserId</option>
+                        <option>cdt</option>
+                        <option>cUserId</option>
+                        <option>udt</option>
+                        <option>uUserId</option>
+                        <option>serialVersionUID</option>
+                        <option>status</option>
+                        <option>remarks</option>
+                    </sysFields>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.15</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.5</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <configurationFile>src/main/resources/mybatis/generatorConfig.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
