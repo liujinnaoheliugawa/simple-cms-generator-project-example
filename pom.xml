@@ -77,7 +77,7 @@
             <plugin>
                 <groupId>com.liugawaheliujinnao.singleFunction</groupId>
                 <artifactId>generator-plugin</artifactId>
-                <version>2.2-SNAPSHOT</version>
+                <version>2.3-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <goals>
