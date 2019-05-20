@@ -77,7 +77,7 @@
             <plugin>
                 <groupId>com.liugawaheliujinnao.singleFunction</groupId>
                 <artifactId>generator-plugin</artifactId>
-                <version>2.3-SNAPSHOT</version>
+                <version>2.6-SNAPSHOT</version>
                 <executions>
                     <execution>
                         <goals>
@@ -87,11 +87,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <srcPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/src/main/java/com/liugawaheliujinnao/singleFunction/simpleCmsGeneratorProjectExample/</srcPath>
-                    <classesPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/target/classes/com/liugawaheliujinnao/singleFunction/simpleCmsGeneratorProjectExample/</classesPath>
-                    <projectPacakge>com.liugawaheliujinnao.singleFunction.simpleCmsGeneratorProjectExample</projectPacakge>
-                    <resorucePath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/src/main/resources/</resorucePath>
-                    <classPath>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/target/classes/</classPath>
+                    <projectId>com.liugawaheliujinnao.singleFunction.simpleCmsGeneratorProjectExample</projectId>
+                    <projectMainFolder>/Users/wufei/IdeaProjects/liugawaheliujinnao/simple-cms-generator-project-example/src/main</projectMainFolder>
                     <sysFields>
                         <option>adt</option>
                         <option>aUserId</option>
